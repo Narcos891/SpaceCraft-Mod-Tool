@@ -1,0 +1,20 @@
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\SpaceCraft Mod Tool.csproj.AssemblyReference.cache
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\SpaceCraft Mod Tool.csproj.GenerateResource.cache
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\SpaceCraft Mod Tool.GeneratedMSBuildEditorConfig.editorconfig
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\SpaceCraft Mod Tool.AssemblyInfoInputs.cache
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\SpaceCraft Mod Tool.AssemblyInfo.cs
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\SpaceCraft Mod Tool.csproj.CoreCompileInputs.cache
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\SpaceCraft_Mod_Tool.Form1.resources
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\bin\Debug\net10.0-windows\SpaceCraft Mod Tool.exe
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\bin\Debug\net10.0-windows\SpaceCraft Mod Tool.deps.json
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\bin\Debug\net10.0-windows\SpaceCraft Mod Tool.runtimeconfig.json
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\bin\Debug\net10.0-windows\SpaceCraft Mod Tool.dll
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\bin\Debug\net10.0-windows\SpaceCraft Mod Tool.pdb
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\bin\Debug\net10.0-windows\Newtonsoft.Json.dll
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\SpaceCra.F3CF053A.Up2Date
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\SpaceCraft Mod Tool.dll
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\refint\SpaceCraft Mod Tool.dll
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\SpaceCraft Mod Tool.pdb
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\SpaceCraft Mod Tool.genruntimeconfig.cache
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\ref\SpaceCraft Mod Tool.dll
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Debug\net10.0-windows\SpaceCraft_Mod_Tool.LauncherForm.resources

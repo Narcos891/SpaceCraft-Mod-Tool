@@ -1,0 +1,195 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|d:\\traduzione giochi\\spacecraft mod tool\\spacecraft mod tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|d:\\traduzione giochi\\spacecraft mod tool\\spacecraft mod tool\\blueprinthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|solutionrelative:blueprinthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|d:\\traduzione giochi\\spacecraft mod tool\\spacecraft mod tool\\constantmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|solutionrelative:constantmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|d:\\traduzione giochi\\spacecraft mod tool\\spacecraft mod tool\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|d:\\traduzione giochi\\spacecraft mod tool\\spacecraft mod tool\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE897EB7-087E-4ECA-B5B2-D238C14D5D8D}|SpaceCraft Mod Tool.csproj|D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BE897EB7-087E-4ECA-B5B2-D238C14D5D8D}|SpaceCraft Mod Tool.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|d:\\traduzione giochi\\spacecraft mod tool\\spacecraft mod tool\\celldetaileditorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|solutionrelative:celldetaileditorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|d:\\traduzione giochi\\spacecraft mod tool\\spacecraft mod tool\\heapspakwriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|solutionrelative:heapspakwriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|d:\\traduzione giochi\\spacecraft mod tool\\spacecraft mod tool\\launcherform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|solutionrelative:launcherform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|d:\\traduzione giochi\\spacecraft mod tool\\spacecraft mod tool\\heapspakreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44F09213-9B03-05E6-7ED1-15478CE59A4F}|SpaceCraft Mod Tool.csproj|solutionrelative:heapspakreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BlueprintHandler.cs",
+              "DocumentMoniker": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\BlueprintHandler.cs",
+              "RelativeDocumentMoniker": "BlueprintHandler.cs",
+              "ToolTip": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\BlueprintHandler.cs",
+              "RelativeToolTip": "BlueprintHandler.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAADwv3MAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-24T09:13:55.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ConstantManager.cs",
+              "DocumentMoniker": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\ConstantManager.cs",
+              "RelativeDocumentMoniker": "ConstantManager.cs",
+              "ToolTip": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\ConstantManager.cs",
+              "RelativeToolTip": "ConstantManager.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAUwIoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-24T06:27:19.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T15:03:39.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T15:03:17.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAE4EAAAAAAAAAAAAwH4EAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T14:58:06.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HeapsPakWriter.cs",
+              "DocumentMoniker": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\HeapsPakWriter.cs",
+              "RelativeDocumentMoniker": "HeapsPakWriter.cs",
+              "ToolTip": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\HeapsPakWriter.cs",
+              "RelativeToolTip": "HeapsPakWriter.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAYwJAAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T15:58:21.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CellDetailEditorForm.cs",
+              "DocumentMoniker": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\CellDetailEditorForm.cs",
+              "RelativeDocumentMoniker": "CellDetailEditorForm.cs",
+              "ToolTip": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\CellDetailEditorForm.cs",
+              "RelativeToolTip": "CellDetailEditorForm.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAADwv8wAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T17:12:25.183Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LauncherForm.cs",
+              "DocumentMoniker": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\LauncherForm.cs",
+              "RelativeDocumentMoniker": "LauncherForm.cs",
+              "ToolTip": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\LauncherForm.cs",
+              "RelativeToolTip": "LauncherForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T13:58:26.75Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "HeapsPakReader.cs",
+              "DocumentMoniker": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\HeapsPakReader.cs",
+              "RelativeDocumentMoniker": "HeapsPakReader.cs",
+              "ToolTip": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\HeapsPakReader.cs",
+              "RelativeToolTip": "HeapsPakReader.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAuwDYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T15:42:40.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T15:17:37.157Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form1.cs [Progettazione]",
+              "DocumentMoniker": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\traduzione giochi\\SpaceCraft Mod Tool\\SpaceCraft Mod Tool\\Form1.cs [Progettazione]",
+              "RelativeToolTip": "Form1.cs [Progettazione]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-20T13:33:44.874Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
