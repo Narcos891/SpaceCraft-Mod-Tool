@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpaceCraft Mod Tool")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8baff7722c5bf3e5a887dc57529f8a3d55530f42")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpaceCraft Mod Tool")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpaceCraft Mod Tool")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -18,3 +18,5 @@ D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Release\net10.0
 D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Release\net10.0-windows\SpaceCraft Mod Tool.pdb
 D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Release\net10.0-windows\SpaceCraft Mod Tool.genruntimeconfig.cache
 D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Release\net10.0-windows\ref\SpaceCraft Mod Tool.dll
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Release\net10.0-windows\SpaceCraft_Mod_Tool.CellDetailEditorForm.resources
+D:\traduzione giochi\SpaceCraft Mod Tool\SpaceCraft Mod Tool\obj\Release\net10.0-windows\SpaceCraft Mod Tool.sourcelink.json

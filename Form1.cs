@@ -16,17 +16,28 @@ namespace SpaceCraft_Mod_Tool
         private Button btnToggleTheme;
         private Button btnSideEditorToggle;
         private TextBox txtSearch;
+        private Label lblSearch;
         private Panel topPanel;
         private FlowLayoutPanel panelTabs;
         private DataGridView dgvData;
 
+        // Language Buttons
+        private Button btnLangIT;
+        private Button btnLangEN;
+        private Button btnLangDE;
+
         // Smart Editor Controls
         private Panel sideGuidedPanel;
+        private Label lblSmartTitle;
+        private Label lblCat;
+        private Label lblItem;
+        private Label lblProp;
+        private Label lblVal;
         private ComboBox cbSideCategory;
         private ComboBox cbSideItem;
         private ComboBox cbSideProperty;
-        private TextBox txtSmartValue; // Per valori singoli o stringhe
-        private DataGridView dgvSmartGrid; // Griglia tabellare dinamica per array/oggetti (stile HIDE)
+        private TextBox txtSmartValue;
+        private DataGridView dgvSmartGrid;
         private Button btnAddGridRow;
         private Button btnRemoveGridRow;
         private Button btnApplySmart;
@@ -35,6 +46,8 @@ namespace SpaceCraft_Mod_Tool
 
         // Constant Controls
         private Panel panelConstantContainer;
+        private Label lblMacroCat;
+        private Label lblSubCat;
         private ComboBox cmbConstantCategory;
         private ComboBox cmbConstantSubCategory;
         private DataGridView dgvConstantItems;
@@ -53,33 +66,50 @@ namespace SpaceCraft_Mod_Tool
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
             this.UpdateStyles();
 
+            LanguageManager.OnLanguageChanged += UpdateLanguageUI;
+
             ApplyTheme();
+            UpdateLanguageUI();
             LoadDefaultDatabaseIfExists();
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            LanguageManager.OnLanguageChanged -= UpdateLanguageUI;
+            base.OnFormClosed(e);
         }
 
         private void InitializeEditorUI()
         {
-            this.Text = "SpaceCraft CastleDB Editor (Stile HIDE Avanzato + Smart Editor Tabellare + Ricerca)";
             this.Size = new Size(1400, 850);
             this.StartPosition = FormStartPosition.CenterScreen;
 
             topPanel = new Panel { Dock = DockStyle.Top, Height = 50 };
 
-            btnOpenCdb = new Button { Text = "📂 Apri data.cdb / JSON", Left = 15, Top = 10, Width = 160, Height = 30, FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand };
+            btnOpenCdb = new Button { Left = 15, Top = 10, Width = 160, Height = 30, FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand };
             btnOpenCdb.Click += BtnOpenCdb_Click;
 
-            btnSaveCdb = new Button { Text = "💾 Salva Database", Left = 185, Top = 10, Width = 140, Height = 30, FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand };
+            btnSaveCdb = new Button { Left = 185, Top = 10, Width = 140, Height = 30, FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand };
             btnSaveCdb.Click += BtnSaveCdb_Click;
 
             btnToggleTheme = new Button { Left = 340, Top = 10, Width = 150, Height = 30, FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand };
             btnToggleTheme.Click += BtnToggleTheme_Click;
 
-            btnSideEditorToggle = new Button { Text = "🪟 Pannello Guidato", Left = 505, Top = 10, Width = 150, Height = 30, FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand };
+            btnSideEditorToggle = new Button { Left = 505, Top = 10, Width = 150, Height = 30, FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand };
             btnSideEditorToggle.Click += BtnSideEditorToggle_Click;
 
-            Label lblSearch = new Label { Text = "🔍 Cerca:", Left = 675, Top = 15, AutoSize = true, Font = new Font("Segoe UI", 9f, FontStyle.Bold) };
-            txtSearch = new TextBox { Left = 730, Top = 12, Width = 250, Height = 25 };
+            lblSearch = new Label { Left = 675, Top = 15, AutoSize = true, Font = new Font("Segoe UI", 9f, FontStyle.Bold) };
+            txtSearch = new TextBox { Left = 730, Top = 12, Width = 220, Height = 25 };
             txtSearch.TextChanged += TxtSearch_TextChanged;
+
+            // Pulsanti Lingua
+            btnLangIT = new Button { Text = "IT", Left = 965, Top = 12, Width = 40, Height = 26, FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand, Font = new Font("Segoe UI", 8.5f, FontStyle.Bold) };
+            btnLangEN = new Button { Text = "EN", Left = 1010, Top = 12, Width = 40, Height = 26, FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand, Font = new Font("Segoe UI", 8.5f, FontStyle.Bold) };
+            btnLangDE = new Button { Text = "DE", Left = 1055, Top = 12, Width = 40, Height = 26, FlatStyle = FlatStyle.Flat, Cursor = Cursors.Hand, Font = new Font("Segoe UI", 8.5f, FontStyle.Bold) };
+
+            btnLangIT.Click += (s, e) => LanguageManager.SetLanguage("IT");
+            btnLangEN.Click += (s, e) => LanguageManager.SetLanguage("EN");
+            btnLangDE.Click += (s, e) => LanguageManager.SetLanguage("DE");
 
             topPanel.Controls.Add(btnOpenCdb);
             topPanel.Controls.Add(btnSaveCdb);
@@ -87,6 +117,9 @@ namespace SpaceCraft_Mod_Tool
             topPanel.Controls.Add(btnSideEditorToggle);
             topPanel.Controls.Add(lblSearch);
             topPanel.Controls.Add(txtSearch);
+            topPanel.Controls.Add(btnLangIT);
+            topPanel.Controls.Add(btnLangEN);
+            topPanel.Controls.Add(btnLangDE);
 
             panelTabs = new FlowLayoutPanel
             {
@@ -112,6 +145,45 @@ namespace SpaceCraft_Mod_Tool
             this.Controls.Add(dgvData);
             this.Controls.Add(panelTabs);
             this.Controls.Add(topPanel);
+        }
+
+        private void UpdateLanguageUI()
+        {
+            this.Text = LanguageManager.GetText("FormTitle");
+            btnOpenCdb.Text = LanguageManager.GetText("BtnOpen");
+            btnSaveCdb.Text = LanguageManager.GetText("BtnSave");
+            btnSideEditorToggle.Text = LanguageManager.GetText("BtnGuided");
+            btnToggleTheme.Text = isDarkMode ? LanguageManager.GetText("BtnThemeLight") : LanguageManager.GetText("BtnThemeDark");
+            lblSearch.Text = LanguageManager.GetText("SearchLabel");
+
+            // Aggiorna evidenziazione pulsanti lingua
+            btnLangIT.BackColor = LanguageManager.CurrentLanguage == "IT" ? Color.FromArgb(0, 122, 204) : (isDarkMode ? Color.FromArgb(60, 60, 65) : Color.FromArgb(225, 225, 225));
+            btnLangIT.ForeColor = LanguageManager.CurrentLanguage == "IT" ? Color.White : (isDarkMode ? Color.Gainsboro : Color.Black);
+
+            btnLangEN.BackColor = LanguageManager.CurrentLanguage == "EN" ? Color.FromArgb(0, 122, 204) : (isDarkMode ? Color.FromArgb(60, 60, 65) : Color.FromArgb(225, 225, 225));
+            btnLangEN.ForeColor = LanguageManager.CurrentLanguage == "EN" ? Color.White : (isDarkMode ? Color.Gainsboro : Color.Black);
+
+            btnLangDE.BackColor = LanguageManager.CurrentLanguage == "DE" ? Color.FromArgb(0, 122, 204) : (isDarkMode ? Color.FromArgb(60, 60, 65) : Color.FromArgb(225, 225, 225));
+            btnLangDE.ForeColor = LanguageManager.CurrentLanguage == "DE" ? Color.White : (isDarkMode ? Color.Gainsboro : Color.Black);
+
+            // Aggiorna Smart Editor se inizializzato
+            if (sideGuidedPanel != null)
+            {
+                lblSmartTitle.Text = LanguageManager.GetText("SmartTitle");
+                lblCat.Text = LanguageManager.GetText("CatLabel");
+                lblItem.Text = LanguageManager.GetText("ItemLabel");
+                lblProp.Text = LanguageManager.GetText("PropLabel");
+                lblVal.Text = LanguageManager.GetText("ValLabel");
+                btnAddGridRow.Text = LanguageManager.GetText("BtnAddRow");
+                btnRemoveGridRow.Text = LanguageManager.GetText("BtnRemoveRow");
+                btnApplySmart.Text = LanguageManager.GetText("BtnApply");
+                lblSideWarning.Text = LanguageManager.GetText("SideWarning");
+            }
+
+            // Aggiorna interfaccia costanti
+            if (lblMacroCat != null) lblMacroCat.Text = LanguageManager.GetText("MacroCatLabel");
+            if (lblSubCat != null) lblSubCat.Text = LanguageManager.GetText("SubCatLabel");
+            if (dgvConstantItems != null && dgvConstantItems.Visible) LoadConstantGridData();
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
@@ -153,14 +225,8 @@ namespace SpaceCraft_Mod_Tool
                         if (e.RowIndex < lines.Count && lines[e.RowIndex] is JObject lineObj)
                         {
                             string updatedVal = detailForm.ModifiedValue;
-                            try
-                            {
-                                lineObj[columnName] = JToken.Parse(updatedVal);
-                            }
-                            catch
-                            {
-                                lineObj[columnName] = updatedVal;
-                            }
+                            try { lineObj[columnName] = JToken.Parse(updatedVal); }
+                            catch { lineObj[columnName] = updatedVal; }
                         }
                     }
                 }
@@ -171,6 +237,7 @@ namespace SpaceCraft_Mod_Tool
         {
             isDarkMode = !isDarkMode;
             ApplyTheme();
+            UpdateLanguageUI();
 
             if (activeTabButton != null)
             {
@@ -189,9 +256,9 @@ namespace SpaceCraft_Mod_Tool
                 btnOpenCdb.ForeColor = Color.White;
                 btnSaveCdb.BackColor = Color.FromArgb(35, 100, 45);
                 btnSaveCdb.ForeColor = Color.White;
-                btnToggleTheme.Text = "☀️ Modalità Chiara";
                 btnToggleTheme.BackColor = Color.FromArgb(70, 70, 75);
                 btnToggleTheme.ForeColor = Color.Gold;
+                lblSearch.ForeColor = Color.White;
 
                 txtSearch.BackColor = Color.FromArgb(50, 50, 52);
                 txtSearch.ForeColor = Color.White;
@@ -227,9 +294,9 @@ namespace SpaceCraft_Mod_Tool
                 btnOpenCdb.ForeColor = Color.Black;
                 btnSaveCdb.BackColor = Color.FromArgb(220, 245, 220);
                 btnSaveCdb.ForeColor = Color.DarkGreen;
-                btnToggleTheme.Text = "🌙 Modalità Scura";
                 btnToggleTheme.BackColor = Color.FromArgb(230, 230, 230);
                 btnToggleTheme.ForeColor = Color.FromArgb(40, 40, 40);
+                lblSearch.ForeColor = Color.Black;
 
                 txtSearch.BackColor = Color.White;
                 txtSearch.ForeColor = Color.Black;
@@ -281,7 +348,7 @@ namespace SpaceCraft_Mod_Tool
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Filter = "CastleDB / JSON (*.cdb;*.json)|*.cdb;*.json|Tutti i file (*.*)|*.*";
+                ofd.Filter = "CastleDB / JSON (*.cdb;*.json)|*.cdb;*.json|All Files (*.*)|*.*";
                 if (ofd.ShowDialog() == DialogResult.OK) LoadCdbFile(ofd.FileName);
             }
         }
@@ -330,7 +397,7 @@ namespace SpaceCraft_Mod_Tool
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Errore durante la lettura del file CDB:\n{ex.Message}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error reading CDB file:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -460,7 +527,7 @@ namespace SpaceCraft_Mod_Tool
                     Height = 70
                 };
 
-                Label lblCat = new Label { Text = "Macro-Categoria:", Top = 5, Left = 0, AutoSize = true, Font = new Font("Segoe UI", 9.5f, FontStyle.Bold) };
+                lblMacroCat = new Label { Text = LanguageManager.GetText("MacroCatLabel"), Top = 5, Left = 0, AutoSize = true, Font = new Font("Segoe UI", 9.5f, FontStyle.Bold) };
                 cmbConstantCategory = new ComboBox
                 {
                     Top = 30,
@@ -473,7 +540,7 @@ namespace SpaceCraft_Mod_Tool
                 cmbConstantCategory.SelectedIndexChanged += CmbConstantCategory_SelectedIndexChanged;
                 cmbConstantCategory.TextChanged += CmbConstantCategory_TextChanged;
 
-                Label lblSubCat = new Label { Text = "Sotto-Categoria:", Top = 5, Left = 330, AutoSize = true, Font = new Font("Segoe UI", 9.5f, FontStyle.Bold) };
+                lblSubCat = new Label { Text = LanguageManager.GetText("SubCatLabel"), Top = 5, Left = 330, AutoSize = true, Font = new Font("Segoe UI", 9.5f, FontStyle.Bold) };
                 cmbConstantSubCategory = new ComboBox
                 {
                     Top = 30,
@@ -486,7 +553,7 @@ namespace SpaceCraft_Mod_Tool
                 cmbConstantSubCategory.SelectedIndexChanged += CmbConstantSubCategory_SelectedIndexChanged;
                 cmbConstantSubCategory.TextChanged += CmbConstantSubCategory_TextChanged;
 
-                topFilterPanel.Controls.Add(lblCat);
+                topFilterPanel.Controls.Add(lblMacroCat);
                 topFilterPanel.Controls.Add(cmbConstantCategory);
                 topFilterPanel.Controls.Add(lblSubCat);
                 topFilterPanel.Controls.Add(cmbConstantSubCategory);
@@ -532,15 +599,8 @@ namespace SpaceCraft_Mod_Tool
             }
         }
 
-        private void CmbConstantSubCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadConstantGridData();
-        }
-
-        private void CmbConstantSubCategory_TextChanged(object sender, EventArgs e)
-        {
-            LoadConstantGridData();
-        }
+        private void CmbConstantSubCategory_SelectedIndexChanged(object sender, EventArgs e) => LoadConstantGridData();
+        private void CmbConstantSubCategory_TextChanged(object sender, EventArgs e) => LoadConstantGridData();
 
         private void LoadConstantGridData()
         {
@@ -564,10 +624,10 @@ namespace SpaceCraft_Mod_Tool
 
                 dgvConstantItems.DataSource = dt;
 
-                if (dgvConstantItems.Columns["Id"] != null) dgvConstantItems.Columns["Id"].HeaderText = "Parametro (ID)";
-                if (dgvConstantItems.Columns["DataType"] != null) dgvConstantItems.Columns["DataType"].HeaderText = "Tipo di Dato";
-                if (dgvConstantItems.Columns["Value"] != null) dgvConstantItems.Columns["Value"].HeaderText = "Valore";
-                if (dgvConstantItems.Columns["DescriptionIt"] != null) dgvConstantItems.Columns["DescriptionIt"].HeaderText = "Descrizione (IT)";
+                if (dgvConstantItems.Columns["Id"] != null) dgvConstantItems.Columns["Id"].HeaderText = LanguageManager.GetText("ColId");
+                if (dgvConstantItems.Columns["DataType"] != null) dgvConstantItems.Columns["DataType"].HeaderText = LanguageManager.GetText("ColDataType");
+                if (dgvConstantItems.Columns["Value"] != null) dgvConstantItems.Columns["Value"].HeaderText = LanguageManager.GetText("ColValue");
+                if (dgvConstantItems.Columns["DescriptionIt"] != null) dgvConstantItems.Columns["DescriptionIt"].HeaderText = LanguageManager.GetText("ColDesc");
             }
         }
 
@@ -580,15 +640,14 @@ namespace SpaceCraft_Mod_Tool
 
             if (columnName == "Id")
             {
-                MessageBox.Show("L'ID del parametro non può essere modificato per preservare i riferimenti di gioco.", "Azione non consentita", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("ID parameters cannot be modified to preserve game references.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             if (columnName == "DescriptionIt")
             {
                 string currentDesc = dgvConstantItems.Rows[e.RowIndex].Cells["DescriptionIt"].Value?.ToString() ?? "";
-
-                using (var detailForm = new CellDetailEditorForm("Modifica Descrizione (IT)", currentDesc, isDarkMode))
+                using (var detailForm = new CellDetailEditorForm("Description", currentDesc, isDarkMode))
                 {
                     if (detailForm.ShowDialog() == DialogResult.OK)
                     {
@@ -604,7 +663,7 @@ namespace SpaceCraft_Mod_Tool
                 string dataType = dgvConstantItems.Rows[e.RowIndex].Cells["DataType"].Value?.ToString() ?? "float";
                 string currentVal = dgvConstantItems.Rows[e.RowIndex].Cells["Value"].Value?.ToString() ?? "";
 
-                using (var detailForm = new CellDetailEditorForm("Modifica Valore Numerico", currentVal, isDarkMode))
+                using (var detailForm = new CellDetailEditorForm("Value", currentVal, isDarkMode))
                 {
                     if (detailForm.ShowDialog() == DialogResult.OK)
                     {
@@ -634,14 +693,8 @@ namespace SpaceCraft_Mod_Tool
                                     {
                                         if (line["id"]?.ToString() == id)
                                         {
-                                            try
-                                            {
-                                                line["val"] = JToken.Parse(wrappedJsonValue);
-                                            }
-                                            catch
-                                            {
-                                                line["val"] = wrappedJsonValue;
-                                            }
+                                            try { line["val"] = JToken.Parse(wrappedJsonValue); }
+                                            catch { line["val"] = wrappedJsonValue; }
                                             break;
                                         }
                                     }
@@ -660,7 +713,7 @@ namespace SpaceCraft_Mod_Tool
         {
             if (currentCdbJson == null)
             {
-                MessageBox.Show("Nessun database aperto da salvare.", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No database opened to save.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -669,11 +722,11 @@ namespace SpaceCraft_Mod_Tool
             try
             {
                 File.WriteAllText(savePath, currentCdbJson.ToString(Newtonsoft.Json.Formatting.Indented));
-                MessageBox.Show($"Database salvato con successo in:\n{savePath}", "Salvato", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Database saved successfully at:\n{savePath}", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Errore durante il salvataggio:\n{ex.Message}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error saving file:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -690,24 +743,23 @@ namespace SpaceCraft_Mod_Tool
                     Padding = new Padding(15)
                 };
 
-                Label lblTitle = new Label { Text = "✨ Smart Editor Guidato", Top = 15, Left = 15, Font = new Font("Segoe UI", 11, FontStyle.Bold), AutoSize = true };
+                lblSmartTitle = new Label { Text = LanguageManager.GetText("SmartTitle"), Top = 15, Left = 15, Font = new Font("Segoe UI", 11, FontStyle.Bold), AutoSize = true };
 
-                Label lblCat = new Label { Text = "1. Categoria (Tabella):", Top = 50, Left = 15, AutoSize = true, Font = new Font("Segoe UI", 9f, FontStyle.Bold) };
+                lblCat = new Label { Text = LanguageManager.GetText("CatLabel"), Top = 50, Left = 15, AutoSize = true, Font = new Font("Segoe UI", 9f, FontStyle.Bold) };
                 cbSideCategory = new ComboBox { Top = 70, Left = 15, Width = 440, DropDownStyle = ComboBoxStyle.DropDown, AutoCompleteMode = AutoCompleteMode.Suggest, AutoCompleteSource = AutoCompleteSource.ListItems };
                 cbSideCategory.SelectedIndexChanged += CbSideCategory_SelectedIndexChanged;
                 cbSideCategory.TextChanged += CbSideCategory_TextChanged;
 
-                Label lblItem = new Label { Text = "2. Elemento / Riga:", Top = 110, Left = 15, AutoSize = true, Font = new Font("Segoe UI", 9f, FontStyle.Bold) };
+                lblItem = new Label { Text = LanguageManager.GetText("ItemLabel"), Top = 110, Left = 15, AutoSize = true, Font = new Font("Segoe UI", 9f, FontStyle.Bold) };
                 cbSideItem = new ComboBox { Top = 130, Left = 15, Width = 440, DropDownStyle = ComboBoxStyle.DropDown, AutoCompleteMode = AutoCompleteMode.Suggest, AutoCompleteSource = AutoCompleteSource.ListItems };
                 cbSideItem.SelectedIndexChanged += CbSideItem_SelectedIndexChanged;
 
-                Label lblProp = new Label { Text = "3. Parametro:", Top = 170, Left = 15, AutoSize = true, Font = new Font("Segoe UI", 9f, FontStyle.Bold) };
+                lblProp = new Label { Text = LanguageManager.GetText("PropLabel"), Top = 170, Left = 15, AutoSize = true, Font = new Font("Segoe UI", 9f, FontStyle.Bold) };
                 cbSideProperty = new ComboBox { Top = 190, Left = 15, Width = 440, DropDownStyle = ComboBoxStyle.DropDown, AutoCompleteMode = AutoCompleteMode.Suggest, AutoCompleteSource = AutoCompleteSource.ListItems };
                 cbSideProperty.SelectedIndexChanged += CbSideProperty_SelectedIndexChanged;
 
-                Label lblVal = new Label { Text = "4. Valore / Tabella Dati:", Top = 230, Left = 15, AutoSize = true, Font = new Font("Segoe UI", 9f, FontStyle.Bold) };
+                lblVal = new Label { Text = LanguageManager.GetText("ValLabel"), Top = 230, Left = 15, AutoSize = true, Font = new Font("Segoe UI", 9f, FontStyle.Bold) };
 
-                // Casella di testo standard per valori semplici
                 txtSmartValue = new TextBox
                 {
                     Top = 255,
@@ -719,7 +771,6 @@ namespace SpaceCraft_Mod_Tool
                     Font = new Font("Consolas", 9.5f)
                 };
 
-                // Griglia tabellare dinamica (stile HIDE per array/oggetti complessi tipo inputs/outputs/buyout)
                 dgvSmartGrid = new DataGridView
                 {
                     Top = 255,
@@ -737,7 +788,7 @@ namespace SpaceCraft_Mod_Tool
 
                 btnAddGridRow = new Button
                 {
-                    Text = "➕ Aggiungi Riga",
+                    Text = LanguageManager.GetText("BtnAddRow"),
                     Top = 542,
                     Left = 15,
                     Width = 215,
@@ -753,7 +804,7 @@ namespace SpaceCraft_Mod_Tool
 
                 btnRemoveGridRow = new Button
                 {
-                    Text = "➖ Rimuovi Selezionato",
+                    Text = LanguageManager.GetText("BtnRemoveRow"),
                     Top = 542,
                     Left = 240,
                     Width = 215,
@@ -769,7 +820,7 @@ namespace SpaceCraft_Mod_Tool
 
                 btnApplySmart = new Button
                 {
-                    Text = "⚡ Salva Modifiche nel DB",
+                    Text = LanguageManager.GetText("BtnApply"),
                     Top = 585,
                     Left = 15,
                     Width = 440,
@@ -789,10 +840,10 @@ namespace SpaceCraft_Mod_Tool
                     Width = 440,
                     Height = 50,
                     Font = new Font("Segoe UI", 8.5f, FontStyle.Bold),
-                    Text = "💡 Modifica i dati direttamente nella tabella o nel campo."
+                    Text = LanguageManager.GetText("SideWarning")
                 };
 
-                sideGuidedPanel.Controls.Add(lblTitle);
+                sideGuidedPanel.Controls.Add(lblSmartTitle);
                 sideGuidedPanel.Controls.Add(lblCat);
                 sideGuidedPanel.Controls.Add(cbSideCategory);
                 sideGuidedPanel.Controls.Add(lblItem);
@@ -875,7 +926,7 @@ namespace SpaceCraft_Mod_Tool
                 {
                     foreach (JObject line in lines)
                     {
-                        string identifier = line["id"]?.ToString() ?? line["name"]?.ToString() ?? "Riga senza ID";
+                        string identifier = line["id"]?.ToString() ?? line["name"]?.ToString() ?? "Row without ID";
                         cbSideItem.Items.Add(identifier);
                     }
                 }
@@ -905,7 +956,6 @@ namespace SpaceCraft_Mod_Tool
                         {
                             var targetProp = line[propName];
 
-                            // Verifichiamo se il campo è un Array o un Oggetto complesso (es. inputs, outputs, buyout, props)
                             bool isComplex = (targetProp is JArray || (targetProp is JObject obj && obj.Count > 0 && propName != "val"));
 
                             txtSmartValue.Visible = !isComplex;
@@ -935,7 +985,6 @@ namespace SpaceCraft_Mod_Tool
 
             if (targetProp is JArray jArr)
             {
-                // Raccogliamo tutte le chiavi presenti negli elementi dell'array per creare le colonne
                 HashSet<string> keys = new HashSet<string>();
                 foreach (var item in jArr)
                 {
@@ -989,7 +1038,7 @@ namespace SpaceCraft_Mod_Tool
             {
                 DataRow newRow = dt.NewRow();
                 newRow["#"] = dt.Rows.Count;
-                if (dt.Columns.Contains("item")) newRow["item"] = "NuovoElemento";
+                if (dt.Columns.Contains("item")) newRow["item"] = "NewItem";
                 if (dt.Columns.Contains("qty")) newRow["qty"] = "1";
                 if (dt.Columns.Contains("value")) newRow["value"] = "0";
                 dt.Rows.Add(newRow);
@@ -1013,7 +1062,7 @@ namespace SpaceCraft_Mod_Tool
         {
             if (cbSideCategory.SelectedItem == null || cbSideItem.SelectedItem == null || cbSideProperty.SelectedItem == null)
             {
-                MessageBox.Show("Seleziona categoria, elemento e parametro prima di applicare.", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Select category, item, and parameter before applying.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -1074,20 +1123,14 @@ namespace SpaceCraft_Mod_Tool
                                     line[propName] = newObj;
                                 }
 
-                                MessageBox.Show($"Dati salvati con successo per '{selectedId}'!", "Smart Editor Tabellare", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show($"Data saved successfully for '{selectedId}'!", "Smart Tabular Editor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
                                 string textVal = txtSmartValue.Text;
-                                try
-                                {
-                                    line[propName] = JToken.Parse(textVal);
-                                }
-                                catch
-                                {
-                                    line[propName] = textVal;
-                                }
-                                MessageBox.Show($"Valore aggiornato con successo per '{selectedId}'!", "Smart Editor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                try { line[propName] = JToken.Parse(textVal); }
+                                catch { line[propName] = textVal; }
+                                MessageBox.Show($"Value updated successfully for '{selectedId}'!", "Smart Editor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
 
                             if (dgvData.Tag is JObject currentSheet && currentSheet["name"]?.ToString() == sheetName)
